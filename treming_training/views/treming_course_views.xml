@@ -1,0 +1,78 @@
+<odoo>
+    <data>
+        
+        <record id="treming_course_view_search" model="ir.ui.view">
+            <field name="name">treming.course.search</field>
+            <field name="model">treming.course</field>
+            <field name="arch" type="xml">
+                <search string="Search Courses">
+                    <field name="name"/>
+                </search>
+            </field>
+        </record>
+
+        <!-- 1. Form View (Vista de formulario para crear/editar -->
+        <record id="view_treming_course_form" model="ir.ui.view">
+            <field name="name">treming.course.form</field>
+            <field name="model">treming.course</field>
+            <field name="arch" type="xml">
+                <!--  -->
+                <form string="Treming Course">
+                    <sheet>
+                        <group>
+                            <field name="name"/>
+                            <field name="code"/>
+                            <field name="description"/>
+                            <field name="responsible_id"/>
+                            <field name="partner_id"/>
+                            <field name="start_date"/>
+                            <field name="end_date"/>
+                            <field name="duration_hours"/>
+                            <field name="state"/>
+                            <field name="active"/>
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+
+        <!-- 2. List View (Vista de lista para mostrar todas las propiedades) -->
+        <record id="view_treming_course_list" model="ir.ui.view">
+            <field name="name">treming.course.list</field>
+            <field name="model">treming.course</field>
+            <field name="arch" type="xml">
+                <list string="Treming Curses">
+                    <field name="name"/>
+                    <field name="code"/>
+                    <field name="description"/>
+                    <field name="responsible_id"/>
+                    <field name="partner_id"/>
+                    <field name="start_date"/>
+                    <field name="end_date"/>
+                    <field name="duration_hours"/>
+                    <field name="state"/>
+                    <field name="active"/>
+                </list>
+            </field>
+        </record>
+        
+        <!-- Acción para abrir la vista de lista de propiedades -->
+        <record id="action_treming_course" model="ir.actions.act_window">
+            <field name="name">Treming Courses</field>
+            <field name="res_model">treming.course</field>
+            <field name="view_mode">list,form</field>
+            <field name="help" type="html">
+                <p class="o_view_nocontent_smiling_face">
+                    Create your first Treming Course record!
+                </p>
+            </field>
+        </record>
+
+        <!-- Menú raíz (Aparece en la pantalla de inicio de apps) -->
+        <menuitem id="menu_treming_course_root" name="Treming Courses" sequence="10"/>
+        
+        <menuitem id="menu_treming_course" name="Cursos" parent="menu_treming_course_root" action="action_treming_course" sequence="10"/>
+        
+        <menuitem id="menu_treming_course_list" name="Cursos" parent="menu_treming_course" action="action_treming_course" sequence="10" />
+    </data>
+</odoo>
