@@ -8,7 +8,8 @@ class TremingCourse(models.Model):
     name = fields.Char(required=True)
     code = fields.Char(required=True, unique=True)
     description = fields.Text()
-    responsible_id = fields.Many2one('res.partner', string='Responsible')
+    # Cambié de apuntador a res.users para el campo responsible_id, anterior estaba res.partner
+    responsible_id = fields.Many2one('res.users', string='Responsible')
     partner_id = fields.Many2one('res.partner', string='Partner')
     start_date = fields.Date(required = True)
     end_date = fields.Date()
@@ -23,7 +24,13 @@ class TremingCourse(models.Model):
     active = fields.Boolean(default=True)
     
     # campo notes (HMTL)
-    #notes = fields.Html()
+    notes = fields.Html(string='Notes')
+    
+    # Añadida una restricción SQL para el campo code para que sea único ---------------------------
+    _check_code = models.Constraint(
+        'UNIQUE(code)',
+        'El código del curso debe ser único.'
+    )
 
     def action_confirm(self):
         for c in self:
