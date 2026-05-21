@@ -79,7 +79,7 @@
         <!-- Menú raíz (Aparece en la pantalla de inicio de apps) -->
         <menuitem id="menu_treming_course_root" name="Treming Courses" sequence="10"/>
         
-        <menuitem id="menu_treming_course" name="Cursos" parent="menu_treming_course_root" action="action_treming_course" sequence="10"/>
+        <menuitem id="menu_treming_course" name="Training" parent="menu_treming_course_root" sequence="10"/>
         
         <menuitem id="menu_treming_course_list" name="Cursos" parent="menu_treming_course" action="action_treming_course" sequence="10" />
     </data>
